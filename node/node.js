@@ -61,6 +61,16 @@ else if(s == "Pudim"){
 console.log("Pix -- Cartão -- Dinheiro")
 let fp = prompt("Forma de pagamento: ")
 let c = prompt("Cupom: ")
+let desconto;
+if(c = "Aluno10"){
+    desconto = (total % 10)
+}
+else if (c = "Fretegratis"){
+   desconto = total - 5
+}
+else{
+    console.log("Não tem desconto");
+} 
 console.log("Nome do cliente: " + nome)
 console.log("Nome do Atendente: "+ate)
 console.log("Lanche escolhido: "+ l +" " + t )

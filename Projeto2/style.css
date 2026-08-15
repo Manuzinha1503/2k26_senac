@@ -34,86 +34,90 @@ body{
     object-fit: cover;
     object-position: center;
 }
-.verao{
+.novidade{
     width: 80%;
-    height:300px;
-    margin: 0 auto;
-    position: relative;
+    margin: 10px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.novidade h2{
+    margin: 0 0 20px;
+    font-size: 30px;
+    font-family: "Henny Penny", system-ui;
+    color: #000;
+    text-align: center;
+}
+
+.novidade-imagens{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.esquerdonov,
+.direitonov{
+    width: 45%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.esquerdonov img,
+.direitonov img{
+    width: 100%;
+    height: 100%;
+    display: block;
     object-fit: cover;
-    object-position: center;
-    margin-top: 20px;
+}
+.colecoes{
+    width: 90%;
+    margin: 20px auto 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.colecoes > div{
+    position: relative;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.verao{
     background-color:crimson;
 }
-.inverno{
-    width: 80%;
-    height:300px;
-    margin: 0 auto;
-    position: relative;
-    object-fit: cover;
-    object-position: center;
-    margin-top: 20px;
-    background-color:steelblue;
-}
 .outono{
-    width: 80%;
-    height:300px;
-    margin: 0 auto;
-    position: relative;
-    object-fit: cover;
-    object-position: center;
-    margin-top: 20px;
     background-color:goldenrod;
 }
+.inverno{
+    background-color:steelblue;
+}
 .primavera{
-    width: 80%;
-    height:300px;
-    margin: 0 auto;
-    position: relative;
-    object-fit: cover;
-    object-position: center;
-    margin-top: 20px;
     background-color:mediumseagreen;
 }
-.verao img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.inverno img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.outono img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
+.verao img,
+.outono img,
+.inverno img,
 .primavera img{
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     object-position: center;
 }
-.verao h2,
-.outono h2,
-.inverno h2,
-.primavera h2{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 12px 24px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.65);
-    font-family: "Henny Penny", system-ui;
-    font-size: 32px;
-    font-weight: 400;
-    white-space: nowrap;
+.colecoes a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
 }
 .compras{
     width: 80%;

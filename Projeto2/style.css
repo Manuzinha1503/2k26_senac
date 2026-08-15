@@ -34,6 +34,39 @@ body{
     object-fit: cover;
     object-position: center;
 }
+.colecoes{
+    width: 90%;
+    margin: 20px auto 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.colecoes > div{
+    position: relative;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.verao img,
+.outono img,
+.inverno img,
+.primavera img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+.colecoes a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
 .novidade{
     width: 80%;
     margin: 10px auto 0;
@@ -49,7 +82,6 @@ body{
     color: #000;
     text-align: center;
 }
-
 .novidade-imagens{
     width: 100%;
     display: flex;
@@ -73,46 +105,7 @@ body{
     display: block;
     object-fit: cover;
 }
-.colecoes{
-    width: 90%;
-    margin: 20px auto 0;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: nowrap;
-}
-
-.colecoes > div{
-    position: relative;
-    width: 270px;
-    height: 270px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.verao{
-    background-color:crimson;
-}
-.outono{
-    background-color:goldenrod;
-}
-.inverno{
-    background-color:steelblue;
-}
-.primavera{
-    background-color:mediumseagreen;
-}
-.verao img,
-.outono img,
-.inverno img,
-.primavera img{
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center;
-}
-.colecoes a {
+.novidade a {
     display: block;
     width: 100%;
     height: 100%;

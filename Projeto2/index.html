@@ -6,7 +6,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
-	<title>Início</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">	
+<title>Início</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,10 +18,12 @@
 		<a class="henny-penny-regular" href="./index.html">EIMI</a>   
         </div>
 	</header>
-    <div class="banner">
-		<img src="imagens/banner.png">
-    </div>
-    <h1 class="titulos">Coleções</h1>
+	<main>
+	<section class="banner">
+		<img src="imagens/banner.png" alt="Banner da coleção EIMI">
+	</section>
+	<section>
+    <h2 class="titulos">Coleções</h2>
     <div class="colecoes">
         <div class="verao">
 			<a href="verao.html">
@@ -41,28 +46,55 @@
             </a>
         </div>
     </div>
-    	<div class="novidade">
+	</section>
+	<section class="novidade">
 		<h2>Novidades</h2>
 		<div class="novidade-imagens">
 			<div class="esquerdonov">
 				<a href="novidade.html">
-					<img src="imagens/novidade.capa.png">
+					<img src="imagens/novidade.capa.png" alt="Capa das novidades">
 				</a>
 			</div>
 			<div class="direitonov">
 				<a href="novidade.html">
-					<img src="imagens/novidade.contra.png">
+					<img src="imagens/novidade.contra.png" alt="Contracapa das novidades">
 				</a>
 			</div>
 		</div>
-	</div>
-	<div class="vendidos">
-		<h1 class="titulos">Mais Vendidos</h1>
-		<div class="vendidos-imagens">
-			<img src="imagens/verao/verao3.png">
-			<img src="imagens/outono/outono3.png">
-			<img src="imagens/primavera/primavera2.png">
+	</section>
+	<section class="vendidos">
+		<h2 class="titulos">Mais Vendidos</h2>
+		<div class="cards-vendidos">
+			<article class="produto-card">
+				<img src="imagens/verao/verao3.png" alt="Produto 1">
+				<h3>Vestido Floral</h3>
+				<p>R$ 149,90</p>
+				<button>Ver peça</button>
+			</article>
+			<article class="produto-card">
+				<img src="imagens/outono/outono3.png" alt="Produto 2">
+				<h3>Blazer Casual</h3>
+				<p>R$ 219,90</p>
+				<button>Ver peça</button>
+			</article>
+			<article class="produto-card">
+				<img src="imagens/primavera/primavera2.png" alt="Produto 3">
+				<h3>Conjunto leve</h3>
+				<p>R$ 189,90</p>
+				<button>Ver peça</button>
+			</article>
+		</div>
+	</section>
+	<div class="sobre">
+		<img src="imagens/sobre.png" alt="Imagem sobre a marca">
+		<div class="sobre-texto">
+			<h2>Sobre Nós</h2>
+			<p>Bem-vindo à EIMI, onde a moda encontra a identidade. Criamos peças que combinam estilo, qualidade e conforto, para que você se sinta especial em cada momento.</p>
 		</div>
 	</div>
-</body>
+	</main>
+	<footer class="footer">
+	<p>&copy; 2023 EIMI. Todos os direitos reservados.</p>
+</footer>
+	</body>
 </html>

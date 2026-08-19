@@ -7,6 +7,11 @@ body{
   font-weight: 400;
   font-style: normal;
 }
+.barriecito-regular {
+  font-family: "Barriecito", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 .topo{
     width: 100%;
     height: 70px;
@@ -20,9 +25,10 @@ body{
     text-decoration: none;
     font-size: 40px;
 }
+/* BANNER */
 .banner{
     width: 100%;
-    height: 400px;
+    height: 700px;
     background-color: #ccc;
     display: flex;
     justify-content: center;
@@ -34,6 +40,7 @@ body{
     object-fit: cover;
     object-position: center;
 }
+/* COLEÇÕES */
 .colecoes{
     width: 90%;
     margin: 20px auto 0;
@@ -46,7 +53,7 @@ body{
 .colecoes > div{
     position: relative;
     width: 270px;
-    height: 270px;
+    height: 300px;
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -67,6 +74,7 @@ body{
     position: relative;
     text-decoration: none;
 }
+/* NOVIDADES */
 .novidade{
     width: 80%;
     margin: 10px auto 0;
@@ -92,12 +100,11 @@ body{
 .esquerdonov,
 .direitonov{
     width: 45%;
-    height: 400px;
+    height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .esquerdonov img,
 .direitonov img{
     width: 100%;
@@ -112,6 +119,7 @@ body{
     position: relative;
     text-decoration: none;
 }
+/* COMPRAS */
 .compras{
     width: 80%;
     display: grid;
@@ -119,7 +127,7 @@ body{
     gap: 30px;
     margin: 0 auto;
     margin-top: 10px;
-    background-color: crimson;
+    /*background-color: crimson;*/
     text-align: center;
     padding: 20px;
 }
@@ -129,7 +137,7 @@ body{
 }
 .compras img{
     width: 100%;
-    height: 350px;
+    height: 400px;
     display: block;
     object-fit: cover;
 }
@@ -141,25 +149,100 @@ body{
     margin: 0;
     font-size: 16px;
 }
+.compras button {
+    margin-top: 14px;
+    padding: 10px 18px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.compras button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+/*Escrita*/
 .titulos {
     text-align: center;
     font-family: "Henny Penny", system-ui;
     font-size: 50px;
     margin: 20px 0;
 }
-.vendidos-imagens{
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.titulosp {
+    text-align: center;
+    font-family: "Barriecito", system-ui;
+    font-size: 20px;
+    margin: 0 0 20px;
 }
+/* VENDIDOS  */
+.cards-vendidos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 90%;
+  margin: 0 auto 40px;
+}
+.produto-card {
+  background: #fff;
+  border: 1px solid #eee;
+  overflow: hidden;
 
-.vendidos-imagens img{
+}
+.produto-card img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+.produto-card h3 {
+  margin: 12px 12px 0;
+  font-size: 22px;
+}
+.produto-card p {
+  margin: 8px 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.produto-card button {
+  margin: 16px 12px 18px;
+  padding: 10px 16px;
+  border: none;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+.sobre {
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.sobre > img {
     width: 30%;
-    height: 400px;
-    display: block;
+    aspect-ratio: 1;
     object-fit: cover;
+    flex-shrink: 0;
+}
+.sobre-texto {
+    flex: 1;
+}
+.sobre-texto h2 {
+    margin: 0 0 12px;
+    font-size: 36px;
+}
+.sobre-texto p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
 }
 @media (max-width: 700px){
     .compras{
@@ -167,5 +250,14 @@ body{
     }
     .compras > div{
         height: auto;
+    }
+    .sobre {
+        width: 90%;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .sobre > img {
+        width: 70%;
     }
 }

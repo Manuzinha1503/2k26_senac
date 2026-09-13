@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="topo">
+            <a class="henny-penny-regular" href="./index.html">EIMI</a>
+            <a href="./carrinho.html" class="link-carrinho"><img src="imagens/carrinho.png" alt="Carrinho de compras" class="logo-carrinho"></a>
+        </div>
+    </header>
+
+    <main class="carrinho-container">
+        <h1>Carrinho de Compras</h1>
+
+        <div class="carrinho-vazio" id="mensagemVazia">
+            <h2>Seu carrinho está vazio</h2>
+            <p>Explore nossas coleções e adicione itens ao seu carrinho.</p>
+            <a href="./index.html">Continuar comprando</a>
+        </div>
+
+        <div class="carrinho-itens" id="carrinho">
+            <!-- Os itens do carrinho serão inseridos aqui pelo JavaScript -->
+        </div>
+
+        <div id="resumoCarrinho" style="display: none;">
+            <div class="resumo-carrinho">
+                <h3>Resumo do Pedido</h3>
+                <div class="resumo-linha">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="resumo-linha">
+                    <span>Frete:</span>
+                    <span id="frete">R$ 0,00</span>
+                </div>
+                <div class="resumo-linha total">
+                    <span>Total:</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div class="botoes-acao">
+                <a href="./index.html" class="btn-continuar">Continuar comprando</a>
+                <button class="btn-checkout" onclick="alert('Função de checkout será implementada')">Finalizar compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 EIMI. Todos os direitos reservados.</p>
+    </footer>
+    <script src="Java/carrinho.js"></script>
+</body>
+</html>

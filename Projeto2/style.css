@@ -19,11 +19,32 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .topo a{
     color: #fff;
     text-decoration: none;
     font-size: 40px;
+}
+/* CARRINHO */
+.link-carrinho {
+    position: absolute;
+    right: 30px;
+    font-size: 18px !important;
+    padding: 8px 15px;
+    background-color:#fff;
+    border-radius: 45px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+.link-carrinho:hover {
+    background-color: #555;
+}
+.logo-carrinho {
+    height: 30px;
+    width: auto;
+    display: block;
 }
 /* BANNER */
 .banner{
@@ -330,4 +351,166 @@ body{
     .sobre > img {
         width: 70%;
     }
+}
+
+/* CARRINHO DE COMPRAS */
+.carrinho-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.carrinho-vazio {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.carrinho-vazio h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.carrinho-vazio a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.carrinho-vazio a:hover {
+    background-color: #555;
+}
+
+.carrinho-itens {
+    display: none;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.info-item {
+    flex: 1;
+}
+
+.info-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.info-item p {
+    margin: 0;
+    color: #666;
+}
+
+.preco-item {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 20px;
+    min-width: 100px;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantidade input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn-remover {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-remover:hover {
+    background-color: #c9302c;
+}
+
+.resumo-carrinho {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.resumo-carrinho h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.resumo-linha {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.resumo-linha span:first-child {
+    margin-right: 50px;
+    width: 150px;
+    text-align: right;
+}
+
+.total {
+    border-top: 2px solid #333;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.botoes-acao a,
+.botoes-acao button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-continuar {
+    background-color: #000;
+    color: white;
+}
+
+.btn-continuar:hover {
+    background-color: #333;
+}
+
+.btn-checkout {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-checkout:hover {
+    background-color: #4cae4c;
 }

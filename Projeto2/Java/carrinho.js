@@ -5,12 +5,17 @@
 const CHAVE_CARRINHO = 'eimi_carrinho';
 
 function getCarrinho() {
-  return JSON.parse(localStorage.getItem(CHAVE_CARRINHO)) || [];
+  try {
+    return JSON.parse(localStorage.getItem(CHAVE_CARRINHO)) || [];
+  } catch (error) {
+    return [];
+  }
 }
 
 function salvarCarrinho(carrinho) {
   localStorage.setItem(CHAVE_CARRINHO, JSON.stringify(carrinho));
   atualizarContadorCarrinho();
+  if (typeof renderizarCarrinho === 'function') renderizarCarrinho();
 }
 
 function adicionarAoCarrinho(produto) {
@@ -31,7 +36,6 @@ function adicionarAoCarrinho(produto) {
 function removerDoCarrinho(id) {
   const carrinho = getCarrinho().filter(item => item.id !== id);
   salvarCarrinho(carrinho);
-  if (typeof renderizarCarrinho === 'function') renderizarCarrinho();
 }
 
 function alterarQuantidade(id, delta) {
@@ -45,7 +49,6 @@ function alterarQuantidade(id, delta) {
   }
 
   salvarCarrinho(carrinho);
-  if (typeof renderizarCarrinho === 'function') renderizarCarrinho();
 }
 
 function calcularTotalCarrinho() {
@@ -57,16 +60,96 @@ function contarItensCarrinho() {
 }
 
 function atualizarContadorCarrinho() {
-  const contador = document.getElementById('contador-carrinho');
-  if (contador) {
-    const qtd = contarItensCarrinho();
-    contador.textContent = qtd;
-    contador.style.display = qtd > 0 ? 'inline-block' : 'none';
+  let contador = document.getElementById('contador-carrinho');
+  if (!contador) {
+    const linkCarrinho = document.querySelector('.link-carrinho');
+    if (!linkCarrinho) return;
+    contador = document.createElement('span');
+    contador.id = 'contador-carrinho';
+    contador.className = 'contador-carrinho';
+    contador.setAttribute('aria-live', 'polite');
+    linkCarrinho.appendChild(contador);
   }
+
+  const qtd = contarItensCarrinho();
+  contador.textContent = qtd;
+  contador.style.display = qtd > 0 ? 'inline-flex' : 'none';
 }
 
 function formatarPreco(valor) {
   return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+function renderizarCarrinho() {
+  const carrinho = getCarrinho();
+  const container = document.getElementById('carrinho');
+  const mensagemVazia = document.getElementById('mensagemVazia');
+  const resumo = document.getElementById('resumoCarrinho');
+
+  if (!container) return;
+
+  if (!carrinho.length) {
+    container.style.display = 'none';
+    if (mensagemVazia) mensagemVazia.style.display = 'block';
+    if (resumo) resumo.style.display = 'none';
+    return;
+  }
+
+  if (mensagemVazia) mensagemVazia.style.display = 'none';
+  container.style.display = 'block';
+  if (resumo) resumo.style.display = 'block';
+
+  container.innerHTML = carrinho.map(item => `
+    <div class="item-carrinho">
+      <img src="${item.imagem}" alt="${item.nome}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px; margin-right: 12px;">
+      <div class="info-item">
+        <h3>${item.nome}</h3>
+        <p>Preço unitário: ${formatarPreco(item.preco)}</p>
+      </div>
+      <div class="quantidade">
+        <button type="button" data-acao="diminuir" data-id="${item.id}" aria-label="Diminuir quantidade">-</button>
+        <input type="number" min="1" value="${item.quantidade}" data-id="${item.id}" aria-label="Quantidade de ${item.nome}">
+        <button type="button" data-acao="aumentar" data-id="${item.id}" aria-label="Aumentar quantidade">+</button>
+      </div>
+      <div class="preco-item">${formatarPreco(item.preco * item.quantidade)}</div>
+      <button type="button" class="btn-remover" data-id="${item.id}">Remover</button>
+    </div>
+  `).join('');
+
+  const subtotal = carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0);
+  const frete = subtotal > 0 ? 35 : 0;
+  const total = subtotal + frete;
+
+  const subtotalEl = document.getElementById('subtotal');
+  const freteEl = document.getElementById('frete');
+  const totalEl = document.getElementById('total');
+  if (subtotalEl) subtotalEl.textContent = formatarPreco(subtotal);
+  if (freteEl) freteEl.textContent = formatarPreco(frete);
+  if (totalEl) totalEl.textContent = formatarPreco(total);
+
+  container.querySelectorAll('[data-acao]').forEach(botao => {
+    botao.addEventListener('click', event => {
+      const { id, acao } = event.currentTarget.dataset;
+      alterarQuantidade(id, acao === 'aumentar' ? 1 : -1);
+    });
+  });
+
+  container.querySelectorAll('input[data-id]').forEach(input => {
+    input.addEventListener('change', event => {
+      const id = event.target.dataset.id;
+      const novaQuantidade = Number(event.target.value) || 1;
+      const item = getCarrinho().find(produto => produto.id === id);
+      if (!item) return;
+      const diferenca = novaQuantidade - item.quantidade;
+      alterarQuantidade(id, diferenca);
+    });
+  });
+
+  container.querySelectorAll('.btn-remover').forEach(botao => {
+    botao.addEventListener('click', event => {
+      removerDoCarrinho(event.currentTarget.dataset.id);
+    });
+  });
 }
 
 // Pequeno aviso visual ao adicionar um item
@@ -87,5 +170,10 @@ function mostrarAvisoAdicionado(nome) {
   }, 1800);
 }
 
+function inicializarCarrinho() {
+  atualizarContadorCarrinho();
+  if (typeof renderizarCarrinho === 'function') renderizarCarrinho();
+}
+
 // Atualiza o contador assim que a página carrega
-document.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
+document.addEventListener('DOMContentLoaded', inicializarCarrinho);

@@ -37,6 +37,7 @@ body{
     transition: background-color 0.3s;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 .link-carrinho:hover {
     background-color: #555;
@@ -45,6 +46,21 @@ body{
     height: 30px;
     width: auto;
     display: block;
+}
+.contador-carrinho {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #d62828;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    margin-left: 4px;
 }
 /* BANNER */
 .banner{
@@ -321,10 +337,24 @@ body{
 }
 .voltar-link {
     display: inline-block;
-    margin-bottom: 12px;
-    color: #111;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    background-color: #111;
+    border: 2px solid #111;
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.voltar-link:hover {
+    background-color: #fff;
+    color: #111;
+    transform: translateX(-2px);
+}
+.voltar-link:focus-visible {
+    outline: 3px solid #a86f52;
+    outline-offset: 3px;
 }
 .botoes-peca {
     display: flex;

@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+
+        {
+            "type": "pwa-msedge",
+            "request": "launch",
+            "name": "Abrir site Projeto (F5)",
+            "url": "http://localhost:8001/index.html",
+            "webRoot": "${workspaceFolder}/Projeto",
+            "preLaunchTask": "Servir site Projeto"
+        }
+    ]
+}

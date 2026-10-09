@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Servir site Projeto",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "http.server",
+                "8001",
+                "--directory",
+                "${workspaceFolder}/Projeto"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "^Serving HTTP on .* port 8001"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Serving HTTP on .* port 8001",
+                    "endsPattern": "^Serving HTTP on .* port 8001"
+                }
+            }
+        }
+    ]
+}

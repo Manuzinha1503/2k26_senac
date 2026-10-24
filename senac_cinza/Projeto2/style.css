@@ -1,0 +1,950 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.henny-penny-regular {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.barriecito-regular {
+  font-family: "Barriecito", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.topo{
+    width: 100%;
+    height: 70px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.topo a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+}
+/* CARRINHO */
+.link-carrinho {
+    position: absolute;
+    right: 30px;
+    font-size: 18px !important;
+    padding: 8px 15px;
+    background-color:#fff;
+    border-radius: 45px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+.link-carrinho:hover {
+    background-color: #555;
+}
+.logo-carrinho {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+/* BANNER */
+.banner{
+    width: 100%;
+    height: 700px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* COLEÇÕES */
+.colecoes{
+    width: 90%;
+    margin: 20px auto 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.colecoes > div{
+    position: relative;
+    width: 270px;
+    height: 300px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.verao img,
+.outono img,
+.inverno img,
+.primavera img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+.colecoes a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+/* NOVIDADES */
+.novidade{
+    width: 80%;
+    margin: 10px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.novidade h2{
+    margin: 0 0 20px;
+    font-size: 50px;
+    font-family: "Henny Penny", system-ui;
+    color: #000;
+    text-align: center;
+}
+.novidade-imagens{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.esquerdonov,
+.direitonov{
+    width: 45%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.esquerdonov img,
+.direitonov img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.novidade a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+/* COMPRAS */
+.compras{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 auto;
+    margin-top: 10px;
+    /*background-color: crimson;*/
+    text-align: center;
+    padding: 20px;
+}
+.compras > div{
+    flex: 1;
+    height: auto;
+}
+.compras img{
+    width: 100%;
+    height: 400px;
+    display: block;
+    object-fit: cover;
+}
+.compras h2{
+    margin: 12px 0 6px;
+    font-size: 22px;
+}
+.compras p{
+    margin: 0;
+    font-size: 16px;
+}
+.compras a,
+.botao-peca,
+.botao-secundario {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.compras a:hover,
+.botao-peca:hover,
+.botao-secundario:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+.botao-secundario {
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+}
+/*Escrita*/
+.titulos {
+    text-align: center;
+    font-family: "Henny Penny", system-ui;
+    font-size: 40px;
+    margin: 20px 0;
+}
+.titulosp {
+    text-align: center;
+    font-family: "Barriecito", system-ui;
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+/* VENDIDOS  */
+.cards-vendidos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 90%;
+  margin: 0 auto 40px;
+}
+.produto-card {
+  background: #fff;
+  border: 1px solid #eee;
+  overflow: hidden;
+
+}
+.produto-card img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+.produto-card h3 {
+  margin: 12px 12px 0;
+  font-size: 22px;
+}
+.produto-card p {
+  margin: 8px 12px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.produto-card button,
+.produto-botao {
+  margin: 16px 12px 18px;
+  padding: 10px 16px;
+  border: none;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+.produto-botao {
+    display: inline-block;
+    text-decoration: none;
+}
+.sobre {
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.sobre > img {
+    width: 30%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.sobre-texto {
+    flex: 1;
+}
+.sobre-texto h2 {
+    margin: 0 0 12px;
+    font-size: 36px;
+}
+.sobre-texto p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+}
+.footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+}
+/* PÁGINA DA PEÇA */
+.pagina-peca {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px 40px;
+}
+.detalhe-peca {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+.detalhe-peca img {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    display: block;
+}
+.detalhe-info {
+    padding: 10px 0;
+}
+.detalhe-info h1 {
+    font-family: "Henny Penny", system-ui;
+    font-size: 42px;
+    margin: 10px 0 18px;
+}
+.detalhe-info p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+}
+.preco {
+    font-size: 30px;
+    font-weight: 700;
+    color: #111;
+    margin: 12px 0 22px;
+}
+.voltar-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    background-color: #111;
+    border: 2px solid #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.voltar-link:hover {
+    background-color: #fff;
+    color: #111;
+    transform: translateX(-2px);
+}
+.voltar-link:focus-visible {
+    outline: 3px solid #555;
+    outline-offset: 3px;
+}
+.botoes-peca {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+@media (max-width: 700px){
+    .compras{
+        flex-direction: column;
+    }
+    .compras > div{
+        height: auto;
+    }
+    .detalhe-peca {
+        grid-template-columns: 1fr;
+    }
+    .sobre {
+        width: 90%;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .sobre > img {
+        width: 70%;
+    }
+}
+
+/* CARRINHO DE COMPRAS */
+.carrinho-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.carrinho-vazio {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.carrinho-vazio h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.carrinho-vazio a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.carrinho-vazio a:hover {
+    background-color: #555;
+}
+
+.carrinho-itens {
+    display: none;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.info-item {
+    flex: 1;
+}
+
+.info-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.info-item p {
+    margin: 0;
+    color: #666;
+}
+
+.preco-item {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 20px;
+    min-width: 100px;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantidade input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn-remover {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-remover:hover {
+    background-color: #c9302c;
+}
+
+.resumo-carrinho {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.resumo-carrinho h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.resumo-linha {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.resumo-linha span:first-child {
+    margin-right: 50px;
+    width: 150px;
+    text-align: right;
+}
+
+.total {
+    border-top: 2px solid #333;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.botoes-acao a,
+.botoes-acao button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-continuar {
+    background-color: #000;
+    color: white;
+}
+
+.btn-continuar:hover {
+    background-color: #333;
+}
+
+.btn-checkout {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-checkout:hover {
+    background-color: #4cae4c;
+}
+
+/* LOGIN (botão no topo, lado oposto ao carrinho) */
+.link-login {
+    position: absolute;
+    left: 30px;
+    font-size: 16px !important;
+    padding: 8px 15px;
+    background-color: #fff;
+    color: #000 !important;
+    border-radius: 45px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: system-ui, sans-serif;
+    font-weight: 600;
+}
+.link-login:hover {
+    background-color: #555;
+    color: #fff !important;
+}
+.icone-login {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+/* PÁGINA DE LOGIN */
+.login-pagina {
+    min-height: calc(100vh - 70px - 66px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+.login-caixa {
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #ddd;
+    padding: 32px;
+    background: #fff;
+}
+.login-titulo {
+    font-family: "Henny Penny", system-ui;
+    font-weight: 400;
+    font-size: 32px;
+    text-align: center;
+    margin: 0 0 20px;
+}
+.login-sub {
+    text-align: center;
+    line-height: 1.6;
+    color: #444;
+}
+.login-abas {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+.login-abas .aba {
+    flex: 1;
+    padding: 12px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #777;
+    cursor: pointer;
+}
+.login-abas .aba.ativa {
+    color: #000;
+    border-bottom-color: #000;
+}
+.login-caixa form[hidden],
+.login-caixa section[hidden] { display: none; }
+.login-caixa label {
+    display: block;
+    margin: 14px 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.login-caixa input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #bbb;
+    font-size: 16px;
+}
+.login-caixa input:focus {
+    outline: 2px solid #000;
+    outline-offset: 1px;
+}
+.login-erro {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: #c9302c;
+    font-size: 14px;
+}
+.login-botao {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.login-botao:hover { opacity: 0.85; }
+.login-botao-claro {
+    background: #fff;
+    color: #000;
+}
+.login-acoes { margin-top: 20px; }
+@media (max-width: 700px) {
+    .link-login { left: 12px; padding: 8px 10px; }
+    .link-carrinho { right: 12px; }
+    .texto-login { display: none; }
+}
+
+
+/* ============================================
+   MELHORIAS VISUAIS (menos espaço em branco)
+   ============================================ */
+
+/* Fundo bege suave no lugar do branco puro */
+body {
+    background-color: #f2f2f2;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #222;
+}
+
+/* Cabeçalho fixo no topo ao rolar a página */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Banner um pouco mais baixo */
+.banner {
+    height: 550px;
+}
+
+/* Títulos com um detalhe marrom embaixo */
+.titulos {
+    margin: 30px 0 20px;
+}
+.titulos::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #555;
+    margin: 8px auto 0;
+}
+.titulosp {
+    max-width: 900px;
+    margin: 0 auto 25px;
+    padding: 0 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* COLEÇÕES: ocupam a largura toda */
+.colecoes {
+    width: 90%;
+    max-width: 1300px;
+    gap: 16px;
+}
+.colecoes > div {
+    flex: 1;
+    width: auto;
+    height: 340px;
+}
+.colecoes img {
+    transition: transform 0.4s ease;
+}
+.colecoes > div:hover img {
+    transform: scale(1.06);
+}
+/* NOVIDADES */
+.novidade {
+    width: 90%;
+    max-width: 1300px;
+    margin: 30px auto 0;
+}
+.novidade h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.novidade-imagens {
+    gap: 16px;
+}
+.esquerdonov,
+.direitonov {
+    width: 50%;
+    height: 480px;
+    overflow: hidden;
+}
+.esquerdonov img,
+.direitonov img {
+    transition: transform 0.4s ease;
+}
+.esquerdonov:hover img,
+.direitonov:hover img {
+    transform: scale(1.04);
+}
+
+/* MAIS VENDIDOS e LISTAS DE COMPRAS: cards brancos com sombra */
+.cards-vendidos {
+    width: 90%;
+    max-width: 1300px;
+    margin-bottom: 30px;
+}
+.produto-card,
+.compras > div {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.produto-card:hover,
+.compras > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.produto-card img {
+    height: 450px;
+}
+.produto-card h3 {
+    margin-top: 14px;
+}
+
+.compras {
+    width: 90%;
+    max-width: 1300px;
+    gap: 24px;
+    padding: 10px 0 30px;
+}
+.compras > div {
+    padding: 12px 12px 18px;
+}
+.compras h2 {
+    margin-top: 14px;
+}
+.compras p {
+    color: #555;
+    padding: 0 6px;
+}
+
+/* Botões ficam marrons ao passar o mouse */
+.produto-botao:hover,
+.compras a:hover,
+.botao-peca:hover,
+.voltar-link:hover {
+    background-color: #555;
+    border-color: #555;
+    color: #fff;
+}
+
+/* SOBRE NÓS: faixa de cor em toda a largura */
+.sobre {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 30px 0 0;
+    padding: 40px 10%;
+    background-color: #e4e4e4;
+    gap: 50px;
+}
+.sobre > img {
+    width: 260px;
+    height: 260px;
+    background-color: #fff;
+    object-fit: contain;
+}
+.sobre-texto h2 {
+    font-family: "Henny Penny", system-ui;
+    font-weight: 400;
+}
+
+/* PÁGINA DA PEÇA: tudo dentro de um cartão branco */
+.pagina-peca {
+    margin: 25px auto;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.detalhe-peca img {
+    max-height: 560px;
+}
+
+/* CARRINHO */
+.carrinho-container {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.resumo-carrinho {
+    background-color: transparent;
+}
+
+/* Rodapé */
+.footer {
+    font-size: 16px;
+    padding: 18px 0;
+}
+
+/* CELULAR */
+@media (max-width: 700px) {
+    .banner { height: 300px; }
+    .colecoes { flex-wrap: wrap; }
+    .colecoes > div { flex: 1 1 45%; height: 220px; }
+    .novidade-imagens { flex-direction: column; }
+    .esquerdonov, .direitonov { width: 100%; height: 400px; }
+    .cards-vendidos,
+    .compras { grid-template-columns: 1fr; }
+    .sobre { padding: 30px 5%; }
+    .sobre > img { width: 60%; height: auto; }
+    .pagina-peca { margin: 15px; padding: 15px; }
+}
+
+/* Não cortar a cabeça das modelos nas fotos das novidades */
+.esquerdonov img,
+.direitonov img {
+    object-position: top;
+}
+
+/* Rodapé sempre no fim da tela, mesmo em páginas curtas (ex.: carrinho vazio) */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.footer {
+    margin-top: auto;
+}
+
+/* Ajustes por causa do rodapé fixo no fim da tela */
+.carrinho-container,
+.pagina-peca {
+    width: 100%;
+    box-sizing: border-box;
+}
+.pagina-peca {
+    max-width: 1100px;
+}
+.login-pagina {
+    flex: 1;
+    min-height: 0;
+}
+
+
+/* ============================================
+   CARRINHO FUNCIONANDO
+   ============================================ */
+
+/* Bolinha com a quantidade de itens no ícone do carrinho */
+#contador-carrinho {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #555;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Itens do carrinho */
+.item-carrinho img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.quantidade button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.quantidade button:hover {
+    background-color: #eee;
+}
+.quantidade span {
+    min-width: 20px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .item-carrinho { flex-wrap: wrap; gap: 10px; }
+    .preco-item { margin: 0; }
+    .botoes-acao { flex-direction: column; }
+}
+
+/* Bolinha do carrinho: cinza escuro com borda branca para aparecer no topo preto */
+#contador-carrinho {
+    background-color: #333;
+    border: 2px solid #fff;
+}

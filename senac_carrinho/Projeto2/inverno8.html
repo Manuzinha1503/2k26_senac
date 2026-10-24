@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calça Quente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<script src="auth.js"></script>
+</head>
+<body>
+    <header>
+        <div class="topo">
+            <a class="henny-penny-regular" href="./index.html">EIMI</a>
+            <a class="link-login" id="link-login" href="./login.html"><svg class="icone-login" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="texto-login">Entrar</span></a>
+            <a href="./carrinho.html" class="link-carrinho"><img src="imagens/carrinho.png" alt="Carrinho de compras" class="logo-carrinho"></a>
+        </div>
+    </header>
+
+    <main class="pagina-peca">
+        <a class="voltar-link" href="./inverno.html">Voltar para coleções</a>
+
+        <section class="detalhe-peca">
+            <img src="imagens/inverno/inverno8.png" alt="Calça Quente">
+            <div class="detalhe-info">
+                <h1>Calça Quente</h1>
+                <p>Modelagem ajustada com toque aconchegante, perfeita para combinar.</p>
+                <div class="preco">R$ 239,90</div>
+                <p>Peça exclusiva da coleção de inverno. Feita com atenção aos detalhes, conforto e estilo para realçar sua personalidade em qualquer ocasião.</p>
+                <div class="botoes-peca">
+                    <button class="botao-peca" onclick="adicionarProdutoCarrinho()">Adicionar no carrinho</button>
+                </div>
+                <script>
+                    function adicionarProdutoCarrinho() {
+                        const nome = document.querySelector('.detalhe-info h1').textContent;
+                        const precoText = document.querySelector('.preco').textContent;
+                        const preco = parseFloat(precoText.replace('R$ ', '').replace(',', '.'));
+                        const imagem = document.querySelector('.detalhe-peca img').src;
+                        const id = window.location.pathname.split('/').pop().replace('.html', '');
+                        adicionarAoCarrinho({ id, nome, preco, imagem });
+                    }
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 EIMI. Todos os direitos reservados.</p>
+    </footer>
+    <script src="Java/carrinho.js"></script>
+</body>
+</html>
+

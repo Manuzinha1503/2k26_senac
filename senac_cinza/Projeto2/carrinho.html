@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<script src="auth.js"></script>
+</head>
+<body>
+    <header>
+        <div class="topo">
+            <a class="henny-penny-regular" href="./index.html">EIMI</a>
+            <a class="link-login" id="link-login" href="./login.html"><svg class="icone-login" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="texto-login">Entrar</span></a>
+            <a href="./carrinho.html" class="link-carrinho"><img src="imagens/carrinho.png" alt="Carrinho de compras" class="logo-carrinho"></a>
+        </div>
+    </header>
+
+    <main class="carrinho-container">
+        <h1>Carrinho de Compras</h1>
+
+        <div class="carrinho-vazio" id="mensagemVazia">
+            <h2>Seu carrinho está vazio</h2>
+            <p>Explore nossas coleções e adicione itens ao seu carrinho.</p>
+            <a href="./index.html">Continuar comprando</a>
+        </div>
+
+        <div class="carrinho-itens" id="carrinho">
+            <!-- Os itens do carrinho serão inseridos aqui pelo JavaScript -->
+        </div>
+
+        <div id="resumoCarrinho" style="display: none;">
+            <div class="resumo-carrinho">
+                <h3>Resumo do Pedido</h3>
+                <div class="resumo-linha">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="resumo-linha total">
+                    <span>Total:</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div class="botoes-acao">
+                <a href="./index.html" class="btn-continuar">Continuar comprando</a>
+                <button class="btn-checkout" onclick="finalizarCompra()">Finalizar compra</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 EIMI. Todos os direitos reservados.</p>
+    </footer>
+    <script src="Java/carrinho.js"></script>
+    <script>
+        // Desenha os itens do carrinho na tela
+        function renderizarCarrinho() {
+            const carrinho = getCarrinho();
+            const lista = document.getElementById('carrinho');
+            const vazio = carrinho.length === 0;
+
+            document.getElementById('mensagemVazia').style.display = vazio ? 'block' : 'none';
+            lista.style.display = vazio ? 'none' : 'block';
+            document.getElementById('resumoCarrinho').style.display = vazio ? 'none' : 'block';
+
+            lista.innerHTML = '';
+            carrinho.forEach(item => {
+                lista.innerHTML += `
+                    <div class="item-carrinho">
+                        <img src="${item.imagem}" alt="${item.nome}">
+                        <div class="info-item">
+                            <h3>${item.nome}</h3>
+                            <p>${formatarPreco(item.preco)} cada</p>
+                        </div>
+                        <div class="quantidade">
+                            <button onclick="alterarQuantidade('${item.id}', -1)">-</button>
+                            <span>${item.quantidade}</span>
+                            <button onclick="alterarQuantidade('${item.id}', 1)">+</button>
+                        </div>
+                        <div class="preco-item">${formatarPreco(item.preco * item.quantidade)}</div>
+                        <button class="btn-remover" onclick="removerDoCarrinho('${item.id}')">Remover</button>
+                    </div>`;
+            });
+
+            // Resumo do pedido
+            const subtotal = calcularTotalCarrinho();
+            document.getElementById('subtotal').textContent = formatarPreco(subtotal);
+            document.getElementById('total').textContent = formatarPreco(subtotal);
+        }
+
+        function finalizarCompra() {
+            const user = usuarioLogado();
+            alert('Compra finalizada! Obrigado' + (user ? ', ' + user.nome.split(' ')[0] : '') + ' :)');
+            salvarCarrinho([]);
+            renderizarCarrinho();
+        }
+
+        renderizarCarrinho();
+    </script>
+</body>
+</html>

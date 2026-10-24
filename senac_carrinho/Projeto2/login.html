@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+	<title>Entrar</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="auth.js"></script>
+</head>
+<body>
+	<header>
+		<div class="topo">
+			<a class="link-login" id="link-login" href="./login.html"><svg class="icone-login" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span class="texto-login">Entrar</span></a>
+			<a class="henny-penny-regular" href="./index.html">EIMI</a>
+			<a href="./carrinho.html" class="link-carrinho"><img src="imagens/carrinho.png" alt="Carrinho de compras" class="logo-carrinho"></a>
+		</div>
+	</header>
+	<main class="login-pagina">
+		<div class="login-caixa">
+
+			<!-- Usuário já logado -->
+			<section id="painel-conta" hidden>
+				<h1 class="login-titulo">Minha conta</h1>
+				<p class="login-sub">Olá, <strong id="conta-nome"></strong>!<br><span id="conta-email"></span></p>
+				<div class="login-acoes">
+					<a class="login-botao" href="index.html">Continuar comprando</a>
+					<button class="login-botao login-botao-claro" type="button" id="btn-sair">Sair</button>
+				</div>
+			</section>
+
+			<!-- Entrar / Criar conta -->
+			<section id="painel-form">
+				<h1 class="login-titulo">Bem-vindo à EIMI</h1>
+				<div class="login-abas" role="tablist">
+					<button type="button" class="aba ativa" id="aba-entrar" role="tab" aria-selected="true">Entrar</button>
+					<button type="button" class="aba" id="aba-criar" role="tab" aria-selected="false">Criar conta</button>
+				</div>
+
+				<form id="form-entrar" novalidate>
+					<label for="entrar-email">E-mail</label>
+					<input type="email" id="entrar-email" autocomplete="email" required>
+					<label for="entrar-senha">Senha</label>
+					<input type="password" id="entrar-senha" autocomplete="current-password" required>
+					<p class="login-erro" id="erro-entrar" role="alert"></p>
+					<button class="login-botao" type="submit">Entrar</button>
+				</form>
+
+				<form id="form-criar" novalidate hidden>
+					<label for="criar-nome">Nome</label>
+					<input type="text" id="criar-nome" autocomplete="name" required>
+					<label for="criar-email">E-mail</label>
+					<input type="email" id="criar-email" autocomplete="email" required>
+					<label for="criar-senha">Senha (mínimo 6 caracteres)</label>
+					<input type="password" id="criar-senha" autocomplete="new-password" required>
+					<label for="criar-senha2">Confirmar senha</label>
+					<input type="password" id="criar-senha2" autocomplete="new-password" required>
+					<p class="login-erro" id="erro-criar" role="alert"></p>
+					<button class="login-botao" type="submit">Criar conta</button>
+				</form>
+			</section>
+		</div>
+	</main>
+	<footer class="footer">
+		<p>&copy; 2023 EIMI. Todos os direitos reservados.</p>
+	</footer>
+
+	<script>
+	const $ = id => document.getElementById(id);
+
+	// Alterna entre as abas "Entrar" e "Criar conta"
+	function mostrarAba(criar) {
+		$('form-entrar').hidden = criar;
+		$('form-criar').hidden = !criar;
+		$('aba-entrar').classList.toggle('ativa', !criar);
+		$('aba-criar').classList.toggle('ativa', criar);
+	}
+	$('aba-entrar').onclick = () => mostrarAba(false);
+	$('aba-criar').onclick = () => mostrarAba(true);
+
+	// Se já estiver logado, mostra "Minha conta"
+	const user = usuarioLogado();
+	if (user) {
+		$('painel-form').hidden = true;
+		$('painel-conta').hidden = false;
+		$('conta-nome').textContent = user.nome;
+		$('conta-email').textContent = user.email;
+	}
+	$('btn-sair').onclick = sair;
+
+	// Botão "Entrar"
+	$('form-entrar').onsubmit = e => {
+		e.preventDefault();
+		const erro = entrar($('entrar-email').value.trim().toLowerCase(), $('entrar-senha').value);
+		if (erro) { $('erro-entrar').textContent = erro; return; }
+		location.href = 'index.html';
+	};
+
+	// Botão "Criar conta"
+	$('form-criar').onsubmit = e => {
+		e.preventDefault();
+		const nome = $('criar-nome').value.trim();
+		const email = $('criar-email').value.trim().toLowerCase();
+		const senha = $('criar-senha').value;
+		let erro = '';
+		if (!nome || !email || !senha) erro = 'Preencha todos os campos.';
+		else if (senha.length < 6) erro = 'A senha precisa ter pelo menos 6 caracteres.';
+		else if (senha !== $('criar-senha2').value) erro = 'As senhas não coincidem.';
+		else erro = criarConta(nome, email, senha);
+		if (erro) { $('erro-criar').textContent = erro; return; }
+		location.href = 'index.html';
+	};
+	</script>
+<script src="Java/carrinho.js"></script>
+</body>
+</html>
